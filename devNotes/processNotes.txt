@@ -28,10 +28,39 @@ you have a sail boat, you need to think about how to plot your voyage (around so
 build an app, you need to think about the choice of tools and how those tools imp0act your solution to the problem. If you use React, app is 
 thought about in a certain way.
 
-
+Figuring out what makes a component and when to continue decomposing components is very importan to focus on here.
 
 
 
 # How do you organize a React application?
 ==========================================
-React is broken up into 
+React is broken up into small, reusable components. 
+These components can be used to assemble the application interface. 
+Each component represents a small area of the screen and may have smaller components within those.
+
+You need to make sure you know what you want to build and have some idea of how to build it.
+You need to decide what components you want need to build, how they will work together, etc.
+
+To start, you usually start with a mockup of the design and then break that mockup down into components by functional areas.
+Your objective is to make the component as single-minded as possible... make that component responsible for one thing.
+If the component is getting too complex, you need to break it down even more.
+
+Then, you need to think about which data are state and which are props and where the state should live in your components heirarchy.
+Once this is done, you add the interactivity of the user.
+
+
+
+
+# The file uploader.
+=====================
+For this study, we'll make a file uploader that will help sync (fake) files with something like dropbox. Note that this is entirely front end.
+
+What kind of data is our file uploader going to be working with? 
+----------------------------------------------------------------------------------------------
+[
+  {"fileType":"jpg","size":"4.3MB","name":"me on skis.jpg","status":"Synced"},
+  {"fileType":"mov","size":"1.3GB","name":"cats falling.mov","status":"Uploaded"},
+  {"fileType":"txt","size":"0.9KB","name":"My December expenses.txt","status":"Uploaded"},
+  {"fileType":"mp3","size":"3.4MB","name":"disturbed_sound_of_silence.mp3","status":"New"},
+]
+-----------------------------------------------------------------------------------------------
