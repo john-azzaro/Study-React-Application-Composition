@@ -187,4 +187,46 @@ How do you build the app from decomposition?
       the nested components.
 
 
+
+
+
+Building the file uploader application
+=======================================
+1. Add static data for the app.
+  For this application, we are going to use static data that will be supplied to the app via a constant called "FILES".
+  In order for the application to use this data, you need to pass it to the App component as a prop.
+  
+  ---------------------------------------------------------------------------------------------------------------
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import './index.css';
+    import App from './App';
+
+    const FILES = [                                                                                                 // 1. "FILES" constant will function as the data for the application.
+      {"fileType":"jpg","size":"4.3MB","name":"me on skis.jpg","status":"Synced"},
+      {"fileType":"mov","size":"1.3GB","name":"cats falling.mov","status":"Uploaded"},
+      {"fileType":"txt","size":"0.9KB","name":"My December expenses.txt","status":"Uploaded"},
+      {"fileType":"mp3","size":"3.4MB","name":"disturbed_sound_of_silence.mp3","status":"New"},
+    ];
+
+    ReactDOM.render(<App files={FILES}/>, document.getElementById('root'));                                         // 2. pass in the "FILES" constant as a prop (e.g. files={FILES}).
+  ---------------------------------------------------------------------------------------------------------------
+
+
+2. Modify the App component to be composed of TWO components
+  In the planning and wireframing phase, we decided that the "SearchBar" and "FilterableList" would be two central 
+  components of the application. But first things first, set up your class component.
+  ----------------------------------------------------------------------------------------------------------------
+    import React, { Component } from 'react';                                                                       // 1. Import react
+
+    class App extends Component  {                                                                                  // 2. Class component named App.
+      render() {
+        return (
+
+        )
+      }
+    }
+
+    export default App;                                                                                              // 3. Export component.
+  ----------------------------------------------------------------------------------------------------------------
                                         
