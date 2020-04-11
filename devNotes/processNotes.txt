@@ -32,6 +32,8 @@ Figuring out what makes a component and when to continue decomposing components 
 
 
 
+
+
 # How do you organize a React application?
 ==========================================
 React is broken up into small, reusable components. 
@@ -63,6 +65,9 @@ If the component is getting too complex, you need to break it down even more.
 
 Then, you need to think about which data are state and which are props and where the state should live in your components heirarchy.
 Once this is done, you add the interactivity of the user.
+
+
+
 
 
 
@@ -113,5 +118,31 @@ because it makes it easier to test your components and debug them. It also makes
 
 
 
+
+
 How do you think about decomposing a mockup for react components?
 =================================================================
+
+1. Start with the Root component.
+  The root component is the central component that all the other components will be nested inside. In the case of this 
+  application, the root component is going to the header component and list component nested inside it. From there
+  you can take each component and then break that down to even smaller components.
+
+2. Also consider data when breaking down the components.
+  Each componnt will either display or have some interaction with a part of that data. In the case of this application, the data is
+  going to be an array of objects. You need to think about a few things here.
+    A. Which component in the interface relates to the array of objects?
+    B. Which component relates to a single object?
+    C. Which Do we need components for any part of the object?
+
+3. Try to further decompose the components that you already identified and give them a functional name:
+  1. Entire application (i.e. app component)     -- FileUploader
+    I. Header component.                         -- SeachBar
+      1. Input bar.                              -- SearchBox
+      2. Filter options.                         -- FilterOptions
+    II. List component.                          -- FilterableList
+    III. File component.                         -- ListItem
+      1. List item control bar.                  -- ControlBar
+
+
+  
