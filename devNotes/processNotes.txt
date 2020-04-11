@@ -305,7 +305,27 @@ practically every other component.
 
 
 
+SIDENOTE: Importing Third-party icons for in-app use.
+======================================================
+  If you find you want to use third-party icons for your application, you simply need to install the third-party
+  library via npm, import it, and use the corresponding component.
 
+  For this project, you'll want to install fontawesome libraries:
+  ---------------------------------------------------------------------------
+    $ npm install @fortawesome/fontawesome-svg-core
+    $ npm install @fortawesome/free-solid-svg-icons
+    $ npm install @fortawesome/react-fontawesome
+  ---------------------------------------------------------------------------
 
+  And then import the library to your file:
+  ----------------------------------------------------------------------------
+    import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+    import { faSearch } from '@fortawesome/free-solid-svg-icons';
+  ----------------------------------------------------------------------------
+
+  And lastly, you can use the icon in your component:
+  ---------------------------------------------------------------------------
+    <FontAwesomeIcon icon={faSearch}/>
+  ---------------------------------------------------------------------------
 
                                         
