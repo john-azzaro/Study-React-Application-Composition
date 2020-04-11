@@ -258,7 +258,7 @@ Build the foundation: Initial structure of App and index
 
 
 
-Build out the components
+Build out your component
 =========================
 For the components, you simply need to create a component folder in the src folder, add the associated files, and 
 build out the component. Below is an outline of the SearchBar component, but the same process can be used for 
@@ -328,4 +328,17 @@ SIDENOTE: Importing Third-party icons for in-app use.
     <FontAwesomeIcon icon={faSearch}/>
   ---------------------------------------------------------------------------
 
+
+
+
+
+Build the subcomponents for your components
+============================================
+  * For components that are going to be used inside parent components, its the same process. Simply create
+    the folder in src, create the files, and code the component.
+  
+  1. Create a FilterOptions component:
+    ----------------------------------------------------------------------------------------------------------
+    
+    ----------------------------------------------------------------------------------------------------------
                                         
