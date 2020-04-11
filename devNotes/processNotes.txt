@@ -148,6 +148,7 @@ How do you think about decomposing a mockup for react components?
 
 
 4. Think about the heirarchical structure of the arranged components.
+  This is going to give you a better idea of what 
 
                                     FileUploader
                                           |
@@ -160,3 +161,30 @@ How do you think about decomposing a mockup for react components?
         SearchInput         FilerOptions          ListItem               ListItem              ListItem
                                                       |
                                                   ControlBar
+
+
+
+
+
+How do you build the app from decomposition?
+============================================
+1. Build out the application's USER INTERFACE with no interaction
+  Building the application out without any interaction is like building a live wireframe of your application. 
+  However, it depends on what sort of application you are building. 
+  
+  A. For complex apps, build from the bottom up.
+      For example, if you are building an app that is highly complex, you would want to build out smaller
+      components first that are lower in the tree and then use those to build the components higher up until you 
+      have a fully working app.
+
+  B. For simpler apps, build from the top down.
+      When you build smaller apps, it is possible to build from the root component down until all your components
+      are built.
+
+ C. Each component should have a render method that displays the data in your model.
+      That data should only be props for now since you are not doing the interactivity and state is about interactivity
+      and how data changes over time. You can declare the data needed in the root of the application and pass props to 
+      the nested components.
+
+
+                                        
