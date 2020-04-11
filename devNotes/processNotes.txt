@@ -19,3 +19,19 @@ one as well so I would urge you to consider at least doing a rough summary for y
 
 Objective of Study
 ==================
+The objective of this app is to make a "file upload" application with particular focus on the decomposition of the design into React components 
+in a heirarchy and implement it with state and props.
+
+Problem solving is also extremely important to focus on. For example, when you want to get to New York city, you think about the solution in 
+terms of resources available to you. If you have a plane, you plan the route and where you can refuel until you get to your destination. But If
+you have a sail boat, you need to think about how to plot your voyage (around south america or through the panama canal). In other words, when you 
+build an app, you need to think about the choice of tools and how those tools imp0act your solution to the problem. If you use React, app is 
+thought about in a certain way.
+
+
+
+
+
+# How do you organize a React application?
+==========================================
+React is broken up into 
