@@ -128,6 +128,7 @@ How do you think about decomposing a mockup for react components?
   application, the root component is going to the header component and list component nested inside it. From there
   you can take each component and then break that down to even smaller components.
 
+
 2. Also consider data when breaking down the components.
   Each componnt will either display or have some interaction with a part of that data. In the case of this application, the data is
   going to be an array of objects. You need to think about a few things here.
@@ -135,14 +136,27 @@ How do you think about decomposing a mockup for react components?
     B. Which component relates to a single object?
     C. Which Do we need components for any part of the object?
 
+
 3. Try to further decompose the components that you already identified and give them a functional name:
   1. Entire application (i.e. app component)     -- FileUploader
-    I. Header component.                         -- SeachBar
-      1. Input bar.                              -- SearchBox
-      2. Filter options.                         -- FilterOptions
-    II. List component.                          -- FilterableList
-    III. File component.                         -- ListItem
-      1. List item control bar.                  -- ControlBar
+    I. Header component.                         ---  SeachBar
+      1. Input bar.                              ----   SearchBox
+      2. Filter options.                         ----   FilterOptions
+    II. List component.                          ---  FilterableList
+    III. File component.                         ---  ListItem
+      1. List item control bar.                  ----   ControlBar
 
 
-  
+4. Think about the heirarchical structure of the arranged components.
+
+                                    FileUploader
+                                          |
+                      ____________________|___________________   
+                      |                                       |
+                    SearchBar                             FilterableList
+                      |                                       |
+            __________|__________                     ________|____________________________________  
+            |                    |                    |                     |                      |
+        SearchInput         FilerOptions          ListItem               ListItem              ListItem
+                                                      |
+                                                  ControlBar
