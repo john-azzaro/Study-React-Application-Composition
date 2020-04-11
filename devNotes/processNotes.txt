@@ -45,6 +45,22 @@ To start, you usually start with a mockup of the design and then break that mock
 Your objective is to make the component as single-minded as possible... make that component responsible for one thing.
 If the component is getting too complex, you need to break it down even more.
 
+      _____________________________________________________________
+      File uploader                            Search_________ 
+                                        oAll oUploaded oSynced oNew
+        ----------------------------------------------------
+      [@]    My December Expenses.txt                        0.9kb
+              uploaded                     reloaded  trash  cloud
+        ----------------------------------------------------
+      [@]    me on skis.jpg                                  4.3kb
+              uploaded                     reloaded  trash  cloud
+        ----------------------------------------------------  
+      [@]   cats falling.mov                                 3.4mb
+              uploaded                     reloaded  trash  cloud
+        ----------------------------------------------------
+      _____________________________________________________________
+
+
 Then, you need to think about which data are state and which are props and where the state should live in your components heirarchy.
 Once this is done, you add the interactivity of the user.
 
@@ -56,11 +72,13 @@ Once this is done, you add the interactivity of the user.
 For this study, we'll make a file uploader that will help sync (fake) files with something like dropbox. Note that this is entirely front end.
 
 What kind of data is our file uploader going to be working with? 
-----------------------------------------------------------------------------------------------
-[
-  {"fileType":"jpg","size":"4.3MB","name":"me on skis.jpg","status":"Synced"},
-  {"fileType":"mov","size":"1.3GB","name":"cats falling.mov","status":"Uploaded"},
-  {"fileType":"txt","size":"0.9KB","name":"My December expenses.txt","status":"Uploaded"},
-  {"fileType":"mp3","size":"3.4MB","name":"disturbed_sound_of_silence.mp3","status":"New"},
-]
------------------------------------------------------------------------------------------------
+      ----------------------------------------------------------------------------------------------
+      [
+        {"fileType":"jpg","size":"4.3MB","name":"me on skis.jpg","status":"Synced"},
+        {"fileType":"mov","size":"1.3GB","name":"cats falling.mov","status":"Uploaded"},
+        {"fileType":"txt","size":"0.9KB","name":"My December expenses.txt","status":"Uploaded"},
+        {"fileType":"mp3","size":"3.4MB","name":"disturbed_sound_of_silence.mp3","status":"New"},
+      ]
+      -----------------------------------------------------------------------------------------------
+
+
