@@ -192,6 +192,11 @@ How do you build the app from decomposition?
 
 Building the file uploader application
 =======================================
+
+
+
+Build the foundation: Initial structure of App and index
+=========================================================
 1. Add static data for the app.
   For this application, we are going to use static data that will be supplied to the app via a constant called "FILES".
   In order for the application to use this data, you need to pass it to the App component as a prop.
@@ -249,4 +254,53 @@ Building the file uploader application
 
     export default App;                                                                                           
   ----------------------------------------------------------------------------------------------------------------
+
+
+
+
+Build out the components
+=========================
+
+1. First, create a component folder inside "src".
+  ----------------------------------------------------------------------------------------------------------------
+    src  >  SearchBar
+  ----------------------------------------------------------------------------------------------------------------
+
+2. Second, create your files associated with the component.
+ * Normally, you'll want 3 files: .js, .css, and .test.js. 
+  ----------------------------------------------------------------------------------------------------------------
+    SearchBar  >  SearchBar.js  
+               >  SearchBar.css
+               >  SearchBar.test.js
+  ----------------------------------------------------------------------------------------------------------------
+
+2. First, build the SearchBar component.
+------------------------------------------------------------------------------------------------------------------
+    import React, { Component } from 'react';                                                                       // Import React
+    import './SearchBar.css';                                                                                       // Import SearBar css file.
+    import SearchBox from '../SearchBox/SearchBox';                                                                 // Import SearchBox (another component that will be added next).
+    import FilterOptions from '../FilterOptions/FilterOptions';                                                     // Import FilterOptions (another component that will be added later).
+
+    class SearchBar extends Component {
+      render() {
+        return (
+          <div className="SearchBar">                                                                                // SearchBar component with...
+            <div className="SearchBar__heading">                                                                     // ... Heading 
+              <h1>File Uploader</h1> 
+            </div>
+            <div className="SearchBar__controls">                                                                    // ... and Searchbar controls including...
+              <SearchBox/>                                                                                           // ... SearchBox component...
+              <FilterOptions/>                                                                                       // ... and FilterOptions component.
+            </div>
+          </div>
+        );
+      }
+    }
+
+    export default SearchBar;                                                                                        // Export SearchBar for use in the app.
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
                                         
