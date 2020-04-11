@@ -260,6 +260,9 @@ Build the foundation: Initial structure of App and index
 
 Build out the components
 =========================
+For the components, you simply need to create a component folder in the src folder, add the associated files, and 
+build out the component. Below is an outline of the SearchBar component, but the same process can be used for 
+practically every other component.
 
 1. First, create a component folder inside "src".
   ----------------------------------------------------------------------------------------------------------------
@@ -299,6 +302,8 @@ Build out the components
 
     export default SearchBar;                                                                                        // Export SearchBar for use in the app.
 ------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
