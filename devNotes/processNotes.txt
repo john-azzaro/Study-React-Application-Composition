@@ -66,7 +66,6 @@ Once this is done, you add the interactivity of the user.
 
 
 
-
 # The file uploader.
 =====================
 For this study, we'll make a file uploader that will help sync (fake) files with something like dropbox. Note that this is entirely front end.
@@ -82,3 +81,37 @@ What kind of data is our file uploader going to be working with?
       -----------------------------------------------------------------------------------------------
 
 
+Now back to the mockup...
+Take a look at your mockup and thnk about how you can break it up into FUNCTIONAL AREAS.
+A function area is some part of the screen that is responsible for something specific. 
+
+      _____________________________________________________________         __
+      File uploader                            Search_________                |--Header area component function area.
+                                        oAll oUploaded oSynced oNew         __|
+        ----------------------------------------------------                  |
+      [@]    My December Expenses.txt                        0.9kb            |--List of files component function area.
+              uploaded                     reloaded  trash  cloud             |__
+        ----------------------------------------------------                  |  |
+      [@]    me on skis.jpg                                  4.3kb            |  |--Individual file component function area.
+              uploaded                     reloaded  trash  cloud             |__|
+        ----------------------------------------------------                  |
+      [@]   cats falling.mov                                 3.4mb            |
+              uploaded                     reloaded  trash  cloud             |
+        ----------------------------------------------------                __|
+      _____________________________________________________________
+
+
+In the mockup above, the design is split up into 3 components:
+  1. Header component.
+  2. List component.
+  3. File component.
+
+The most effective designs are made up of components that each only have a single responsibility. This is good
+because it makes it easier to test your components and debug them. It also makes them practical for reusability.
+
+
+
+
+
+How do you think about decomposing a mockup for react components?
+=================================================================
