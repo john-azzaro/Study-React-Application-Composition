@@ -227,6 +227,26 @@ Building the file uploader application
       }
     }
 
-    export default App;                                                                                              // 3. Export component.
+    export default App;                                                                                             // 3. Export component.
+  ----------------------------------------------------------------------------------------------------------------
+
+  Then, add the components in the composition that was planned. In this case, we have a main div (which remember needs
+  to be like this because the component will work only on one primary component) and then within it, the two components.
+  One of the components, FilerableList, is going to have the 
+  ----------------------------------------------------------------------------------------------------------------
+    import React, { Component } from 'react';                                                                     
+
+    class App extends Component  {                                                                                
+      render() {
+        return (
+          <div className="App">                                                                                     // 1. App component with...
+            <SearchBar />                                                                                           // 2. SearchBar component...
+            <FilterableList files={this.props.files} />                                                             // 3. FilterableList component WITH the files props passed in. 
+          </div>
+        )
+      }
+    }
+
+    export default App;                                                                                           
   ----------------------------------------------------------------------------------------------------------------
                                         
