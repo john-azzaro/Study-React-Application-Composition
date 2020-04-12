@@ -258,7 +258,7 @@ Build the foundation: Initial structure of App and index
 
 
 
-Build out your component
+Build out your components
 =========================
 For the components, you simply need to create a component folder in the src folder, add the associated files, and 
 build out the component. Below is an outline of the SearchBar component, but the same process can be used for 
@@ -337,40 +337,36 @@ Build the subcomponents for your components
   * For components that are going to be used inside parent components, its the same process. Simply create
     the folder in src, create the files, and code the component.
   
-  1. Create a FilterOptions component:
-    * Note the radio selectors.
-    ----------------------------------------------------------------------------------------------------------
-      class FilterOptions extends Component {
-        render() {
-          return (
-            <div className="FilterOptions">
-              <div className="FilterOptions__option">
-                <label htmlFor="filter_all">
-                  <input type="radio" value="All" id="filter_all" name="filter"/>
-                All
-                </label>
-              </div>
-              <div className="FilterOptions__option">
-                <label htmlFor="filter_uploaded">
-                  <input type="radio" value="Uploaded" id="filter_uploaded" name="filter"/>
-                Uploaded
-                </label>
-              </div>
-              <div className="FilterOptions__option">  
-                <label htmlFor="filter_synced">
-                  <input type="radio" value="Synced" id="filter_synced" name="filter"/>
-                Synced
-                </label>
-              </div>
-              <div className="FilterOptions__option">  
-                <label htmlFor="filter_new">
-                  <input type="radio" value="New" id="filter_new" name="filter"/>
-                New
-                </label>
-              </div>
-            </div>
-          );
-        }
-      }
-    ----------------------------------------------------------------------------------------------------------
-                                        
+  1. Create FilterOptions component:
+  2. Create FilterableList component.
+  3. Create ListItem component.
+  4. Create ControlBar component.
+
+
+
+
+
+
+Identify the state needed for the application
+==============================================
+  Now you need to think about state and where it should reside in your application. This means you need to 
+  think about where all the data that is needed for your app is going to reside. Also, think about the names
+  you want to attribute to them.
+
+  For example, we know that:
+    1. the user is going to enter a search term.        -- searchTerm
+    2. the filter option selected by the user.          -- FilterOptions
+    3. Where the array of files reside.                 -- files
+    4. filtered list of files to be displayed.          -- filteredFiles
+
+  It's important to remember that:
+    * State is not passed from the parent.
+    * State changes... if it does not, then is is not a state, it is a prop.
+    * If it is computed from other data, then it is NOT state.
+
+
+  For "files":
+    This is the original array of files passed down from the top component (app) displays updates as this value changes.
+  
+  For "filteredFiles":
+    This is calculated from the original arrays as "filterOptions" and "searchTerm" so it is NOT state either.
