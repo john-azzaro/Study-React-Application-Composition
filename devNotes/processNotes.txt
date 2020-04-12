@@ -463,3 +463,47 @@ Decide on where state should live.
         }
       }
     -------------------------------------------------------------------
+
+
+
+
+
+  Implement state in the child components:
+  ========================================
+    Now that you can access the state that lives in the App component, you can use the values that you just passed in to use 
+    in the child components.
+
+    In the FilterableList component below, the two values are used to filter the array of files displayed. This is done accessing
+    the values from the props (i.e. creating const's for each via destructuring) and keep those maching that critria. The criteria
+    in this case is the file name containing the searchTerm and the file status being equal to the filterOption (or the 'All' option).
+
+    --------------------------------------------------------------------------
+      import React, { Component } from 'react';
+      import './FilterableList.css';
+      import ListItem from '../ListItem/ListItem';
+
+      class FilterableList extends Component {
+        render() {
+          const { searchTerm, filterOption } = this.props;
+          const list = this.props.files
+              .filter(file => file.name.includes(searchTerm)
+                    && (filterOption === 'All' || file.status === filterOption))
+              .map((file, key) => <ListItem {...file} key={key} />);
+          return (
+            <div className="FilterableList">
+              {list}
+            </div>
+          );
+        }
+      }
+
+      FilterableList.defaultProps = {
+        files: []
+      };
+
+
+      export default FilterableList;
+    --------------------------------------------------------------------------
+
+
+  
