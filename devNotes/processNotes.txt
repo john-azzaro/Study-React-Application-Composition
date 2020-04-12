@@ -387,4 +387,79 @@ Decide on where state should live.
   and which components are updated when the state changes. For example:
 
   1. "searchTerm" is mutated by the "searchBox" component.
-  2. "FilerableList" 
+  2. "FilerableList" changes what it displays when that state changes.
+
+  ## FIND THE COMMON PARENT 
+  To find the commmon parent that owns both of these components state, you need to trace back to a shared common parent. In the case
+  of this fileUploader application, its owned by "App". Therefore, all updates to the state of "searchTerm" and "FilterableList" will
+  happen in the "App" component.
+
+  This underlines how React emphasizes one-way data-flow via props down the heirarchy. So any component below a point (i.e. App to searchBox)
+  has access to the value in App via props. Any component that lives ABOVE the component where that state lives does NOT have access to it.
+
+
+
+
+
+
+  Add state to your components
+  ============================
+    Since "App" has been identified as the location where we now we want state to live, the application can now be coded up with state.
+    To add state, create a constructor and write an instance property named state. Inside this instance of state, you will put the initial
+    state values for your app, which in this case is the search term (i.e. what is displayed in the search box on start) and the filter
+    option (i.e. which files will be displayed initially)
+    -------------------------------------------------------------------
+      class App extends Component {
+        constructor(props) {                                              // constructor added that takes props as a parameter...
+          super(props);                                                   //... and add super(props) to reach outside this component to React.Component.
+          this.state = {                                                  //... and then create an instance propety called "state" which will hold the initial state of the component.
+            searchTerm: '',                                                     // By default, searchTerm set to empty string since no term will be entered in the input box.
+            filterOption: 'All'                                                 // By default, filterOption set to All since all files will be displayed.
+          }
+        }
+        render() {
+          return (
+            <div className="App">
+              <SearchBar/>
+              <FilterableList files={this.props.files} />
+            </div>
+          );
+        }
+      }
+    -------------------------------------------------------------------
+
+
+
+
+
+  Pass the state values to the child components.
+  ==============================================
+    Now take a look at the initial states that you have established and pass those values to the components that they pertain to
+    in the rendered JSX below. In this case, we have the searchTerm (which is in the "SearchBar" component) and the filterOption 
+    (which is in the "FilterableLIst" component). By doing this, you allow the child components to access state from this point on.
+    -------------------------------------------------------------------
+      class App extends Component {
+        constructor(props) {    
+          super(props);         
+          this.state = {          
+            searchTerm: '',     
+            filterOption: 'All'         
+          }
+        }
+        render() {
+          return (
+            <div className="App">
+              <SearchBar                                                  // To pass the state of searchTerm and filterOption to child components...
+                searchTerm={this.state.searchTerm}                        // ... pass searchTerm as a prop.
+                filterOption={this.state.filterOption}                    // ... pass filterOption as a prop.
+              />
+              <FilterableList                                             // To pass the state of searchTerm and filterOption to child components...
+                files={this.props.files}        
+                searchTerm={this.state.searchTerm}                        // ... pass searchTerm as a prop.
+                filterOption={this.state.filterOption}                    // ... pass filterOption as a prop.
+              />
+            </div>
+          );
+        }
+      }
+    -------------------------------------------------------------------
