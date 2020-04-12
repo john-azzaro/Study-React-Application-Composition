@@ -355,7 +355,7 @@ Identify the state needed for the application
 
   For example, we know that:
     1. the user is going to enter a search term.        -- searchTerm
-    2. the filter option selected by the user.          -- FilterOptions
+    2. the filter option selected by the user.          -- FilterOption
     3. Where the array of files reside.                 -- files
     4. filtered list of files to be displayed.          -- filteredFiles
 
@@ -366,7 +366,25 @@ Identify the state needed for the application
 
 
   For "files":
-    This is the original array of files passed down from the top component (app) displays updates as this value changes.
+    This is the original array of files passed down from the top component (app) displays updates as this value changes, so it does not have state.
   
   For "filteredFiles":
     This is calculated from the original arrays as "filterOptions" and "searchTerm" so it is NOT state either.
+
+  For "searchTerm":
+    searchTerm changes as the user interacts with the app and the app displays updated as this value changesm so it has state.
+
+  For "filterOption":
+    This changes and causes the app to change, so it has state.
+
+
+
+
+
+Decide on where state should live.
+==================================
+  To decide on where state should live, you need to identify which component MUTATES or chnages that particular peice of state 
+  and which components are updated when the state changes. For example:
+
+  1. "searchTerm" is mutated by the "searchBox" component.
+  2. "FilerableList" 
