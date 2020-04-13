@@ -477,7 +477,8 @@ Decide on where state should live.
     the values from the props (i.e. creating const's for each via destructuring) and keep those maching that critria. The criteria
     in this case is the file name containing the searchTerm and the file status being equal to the filterOption (or the 'All' option).
 
-    --------------------------------------------------------------------------
+    --FILTERABLELIST------------------------------------------------------------------------
+
       import React, { Component } from 'react';
       import './FilterableList.css';
       import ListItem from '../ListItem/ListItem';
@@ -503,8 +504,11 @@ Decide on where state should live.
 
 
       export default FilterableList;
+
     --------------------------------------------------------------------------
-    --------------------------------------------------------------------------
+
+    --SEARCHBOX------------------------------------------------------------------------
+      
       import React, { Component } from 'react';
       import './SearchBox.css';
       import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -522,8 +526,11 @@ Decide on where state should live.
       }
 
       export default SearchBox;
+
     --------------------------------------------------------------------------
-    ---------------------------------------------------------------------------------------------------------------------------------
+
+    --FILTEROPTIONS-------------------------------------------------------------------------------------------------------------------------------
+      
       import React, { Component } from 'react';
       import './FilterOptions.css';
 
@@ -562,7 +569,18 @@ Decide on where state should live.
       }
 
       export default FilterOptions;
+
     ----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+Adding Interactivity to the application
+========================================
+
+
+
 
 
   
