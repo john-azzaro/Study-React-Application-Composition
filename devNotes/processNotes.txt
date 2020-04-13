@@ -656,6 +656,11 @@ Adding Interactivity to the application
   This requires you to add an "onChange" event, where the event handler invokes the callback function with the value entered in the 
   input box. This sets the searchTerm state in the App component. An update to the state triggers a re-render and the new searchTerm prop 
   value is passed to "FilterableList" which displays files that match "searchTerm".
+
+  Once the input changes, the event handler invokes the callback function with the value entered in the input box. This sets the searchTerm
+  state in the App component. An update to the state triggers a re-render and the new searchTerm prop value is passed to FilerableList
+  which only displays files that match searchTerm.
+
   ----------------------------------------------------------------------------------
     class SearchBox extends Component {
       render() {
@@ -673,5 +678,44 @@ Adding Interactivity to the application
     }
   ----------------------------------------------------------------------------------
 
+The same thing applies to filterOption, adding the method to update the state.
+-----------------------------------------------------------------------------------
+    class App extends Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          searchTerm: '',
+          filterOption: 'All'
+        };
+      }
 
+      updateSearchTerm(term) {
+        this.setState({
+          searchTerm: term
+        })
+      }
+
+      updateFilterOption(option) {                                                     // added updateFilterOption method to update the state.
+        this.setState({
+          filterOption: option
+        })
+      }
+
+      render() {
+        return (
+          <div className="App">
+            <SearchBar
+              searchTerm={this.state.searchTerm}
+              filterOption={this.state.filterOption}
+              handleUpdate={(term) => this.updateSearchTerm(term)}
+              handleFilterChange={option => this.updateFilterOption(option)}/>         // and pass the callback prop to SearchBar.
+            <FilterableList
+              files={this.props.files}  
+              searchTerm={this.state.searchTerm}
+              filterOption={this.state.filterOption}/>
+          </div>
+        );
+      }
+    }
+-----------------------------------------------------------------------------------
   
