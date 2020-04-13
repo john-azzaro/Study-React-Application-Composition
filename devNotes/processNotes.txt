@@ -718,4 +718,27 @@ The same thing applies to filterOption, adding the method to update the state.
       }
     }
 -----------------------------------------------------------------------------------
+
+Then in the SearchBar component, pass the callback along to the FilterOptions component.
+  ------------------------------------------------------------------------------------
+    class SearchBar extends Component {
+      render() {
+        return (
+          <div className="SearchBar">
+            <div className="SearchBar__heading">
+              <h1>File Uploader</h1>
+            </div>
+            <div className="SearchBar__controls">
+              <SearchBox
+                searchTerm={this.props.searchTerm}
+                handleUpdate={this.props.handleUpdate}/>
+              <FilterOptions                                                            // pass the callback along to the FilerOptions components. 
+                filterOption={this.props.filterOption}
+                handleFilterChange={this.props.handleFilterChange}/>
+            </div>
+          </div>
+        );
+      }
+    }
+  ------------------------------------------------------------------------------------
   
