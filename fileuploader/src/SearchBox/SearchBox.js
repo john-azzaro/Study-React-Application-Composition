@@ -8,7 +8,6 @@ class SearchBox extends Component {
     return (
       <div className="SearchBox">
         <FontAwesomeIcon icon={faSearch}/>
-        <input placeholder="Search term" value={this.props.searchTerm}/>
         <input 
           placeholder="Search term" 
           value={this.props.searchTerm}

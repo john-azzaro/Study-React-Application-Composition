@@ -652,6 +652,22 @@ Adding Interactivity to the application
   =====================================================
   Adding an onChange event handler to the invoke and invoking this callback function whenever the content of the input changes will add
   the desired level of interactivity. To do this, you need to 
+  ----------------------------------------------------------------------------------
+    class SearchBox extends Component {
+      render() {
+        return (
+          <div className="SearchBox">
+            <FontAwesomeIcon icon={faSearch}/>
+            <input placeholder="Search term" value={this.props.searchTerm}/>
+            <input                                                                    // Input
+              placeholder="Search term" 
+              value={this.props.searchTerm}
+              onChange={e => this.props.handleUpdate(e.target.value)}/>
+          </div>   
+        );
+      }
+    }
+  ----------------------------------------------------------------------------------
 
 
   
