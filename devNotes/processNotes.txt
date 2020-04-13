@@ -582,11 +582,13 @@ Adding Interactivity to the application
   Remember that you need to pass a function to a component if you want that component to invoke some action in the parent component. 
   
   In this case, we have the state of the parent (i.e. App), but we want searchbox to update that state. to do so, we can pass a callback
-  function as a prop from the App component to the SearchBoc component.
+  function as a prop from the App component to the SearchBoc component. Since state is owned by App, we'll add some methods to update the state.
 
-  Since state is owned by App, we'll add some methods to update the state.
 
-  First, lets add a method that will update the search term (which in its initial state is set to an empty string)
+  ADD A CALLBACK METHOD 
+  ======================
+  First, lets add a method that will update the search term (which in its initial state is set to an empty string).
+  Second, pass this function as a callback prop to the SearchBar component.
   --------------------------------------------------------------------------------
     class App extends Component {
       constructor(props) {
@@ -597,7 +599,7 @@ Adding Interactivity to the application
         };
       }
 
-      updateSearchTerm(term) {                                            
+      updateSearchTerm(term) {                                                         // "updateSearchTerm" callback function that will set the state to the term input.
         this.setState({
           searchTerm: term
         })
@@ -608,11 +610,37 @@ Adding Interactivity to the application
           <div className="App">
             <SearchBar
               searchTerm={this.state.searchTerm}
-              filterOption={this.state.filterOption}/>
+              filterOption={this.state.filterOption}
+              handleUpdate={(term) => this.updateSearchTerm(term)}/>                  // "updateSearchTerm" passed as a callback prop to searchbar.
             <FilterableList
               files={this.props.files}  
               searchTerm={this.state.searchTerm}
               filterOption={this.state.filterOption}/>
+          </div>
+        );
+      }
+    }
+  --------------------------------------------------------------------------------
+
+
+  IN CHILD COMPOENTS, PASS ALONG THE PROP 
+  ========================================
+  In the SearchBar component where we passed the callback function as a prop, we are not directly using it in the componet.
+  However, you still want to pass it along for later use.
+  --------------------------------------------------------------------------------
+    class SearchBar extends Component {
+      render() {
+        return (
+          <div className="SearchBar">
+            <div className="SearchBar__heading">
+              <h1>File Uploader</h1>
+            </div>
+            <div className="SearchBar__controls">
+              <SearchBox                                                           // In SearchBox...
+              searchTerm={this.props.searchTerm}                                   // ... pass "searchTerm"...
+              handleUpdate={this.props.handleUpdate}/>                             // ... and "handleUpdate"
+              <FilterOptions/>
+            </div>
           </div>
         );
       }
