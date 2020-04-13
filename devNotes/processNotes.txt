@@ -651,7 +651,8 @@ Adding Interactivity to the application
   AND IN THE RELEVANT COMPONENT, ADD AN onChange EVENT.
   =====================================================
   Adding an onChange event handler to the invoke and invoking this callback function whenever the content of the input changes will add
-  the desired level of interactivity. To do this, you need to 
+  the desired level of interactivity. This requires you to add an "onChange" event, where the event handler invokes the callback function
+  with the value entered in the input box. This sets the searchTerm state in the App component.
   ----------------------------------------------------------------------------------
     class SearchBox extends Component {
       render() {
@@ -659,10 +660,10 @@ Adding Interactivity to the application
           <div className="SearchBox">
             <FontAwesomeIcon icon={faSearch}/>
             <input placeholder="Search term" value={this.props.searchTerm}/>
-            <input                                                                    // Input
-              placeholder="Search term" 
+            <input                                                                    // For the input interactivity...
+              placeholder="Search term"     
               value={this.props.searchTerm}
-              onChange={e => this.props.handleUpdate(e.target.value)}/>
+              onChange={e => this.props.handleUpdate(e.target.value)}/>               // "onChange", the event will invoke the props.handleUpdate with the target value of the input box.
           </div>   
         );
       }
