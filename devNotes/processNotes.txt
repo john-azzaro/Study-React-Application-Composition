@@ -578,8 +578,46 @@ Decide on where state should live.
 
 Adding Interactivity to the application
 ========================================
+  Adding interactivity essentially means we are wiring all the buttons up via event listens, form submissions, etc.
+  Remember that you need to pass a function to a component if you want that component to invoke some action in the parent component. 
+  
+  In this case, we have the state of the parent (i.e. App), but we want searchbox to update that state. to do so, we can pass a callback
+  function as a prop from the App component to the SearchBoc component.
 
+  Since state is owned by App, we'll add some methods to update the state.
 
+  First, lets add a method that will update the search term (which in its initial state is set to an empty string)
+  --------------------------------------------------------------------------------
+    class App extends Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          searchTerm: '',
+          filterOption: 'All'
+        };
+      }
+
+      updateSearchTerm(term) {                                            
+        this.setState({
+          searchTerm: term
+        })
+      }
+
+      render() {
+        return (
+          <div className="App">
+            <SearchBar
+              searchTerm={this.state.searchTerm}
+              filterOption={this.state.filterOption}/>
+            <FilterableList
+              files={this.props.files}  
+              searchTerm={this.state.searchTerm}
+              filterOption={this.state.filterOption}/>
+          </div>
+        );
+      }
+    }
+  --------------------------------------------------------------------------------
 
 
 
