@@ -623,8 +623,8 @@ Adding Interactivity to the application
   --------------------------------------------------------------------------------
 
 
-  IN CHILD COMPOENTS, PASS ALONG THE PROP 
-  ========================================
+  IN THE FIRST CHILD COMPONENT, PASS ALONG THE PROP 
+  ==================================================
   In the SearchBar component where we passed the callback function as a prop, we are not directly using it in the componet.
   However, you still want to pass it along for later use.
   --------------------------------------------------------------------------------
@@ -647,6 +647,11 @@ Adding Interactivity to the application
     }
   --------------------------------------------------------------------------------
 
+
+  AND IN THE RELEVANT COMPONENT, ADD AN onChange EVENT.
+  =====================================================
+  Adding an onChange event handler to the invoke and invoking this callback function whenever the content of the input changes will add
+  the desired level of interactivity. To do this, you need to 
 
 
   
